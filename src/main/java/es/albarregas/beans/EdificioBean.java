@@ -5,11 +5,13 @@
  */
 package es.albarregas.beans;
 
+import java.io.Serializable;
+
 /**
  *
  * @author fjvaz
  */
-public class EdificioBean {
+public class EdificioBean implements Serializable{
     private String tipo;
     private int numHabitaciones; 
     private int fecha;
