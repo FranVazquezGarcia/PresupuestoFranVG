@@ -1,0 +1,21 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 17-oct-2018, 1:48:13
+    Author     : fjvaz
+*/
+body{background-color: #7598FE; background-image: url('../IMAGENES/secure.png'); background-repeat: no-repeat; background-position: right top; background-size: 500px; }
+h1{font-family: 'Pacifico', cursive; font-size: 50px; text-align: center; color: mediumblue;}
+label{display: inline-block;  width: 350px}
+form{font-size: 25px; padding: 0 15%}
+input[type='checkbox']{width: 20px; height: 20px; }
+input[type='submit']{font-size: 25px; margin: 10px 50%; border: black solid 2px}
+img{float: right}
+h2{font-family: cursive; text-align: center}
+fieldset{margin-top: 10%; border: black solid 4px}
+input[type='radio']{margin-left: 10px}
+select{font-size: 20px}
+input[type='radio']{width: 20px; height: 20px; }
