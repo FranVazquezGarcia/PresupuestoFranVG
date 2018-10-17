@@ -8,6 +8,5 @@ tener establecidos los valores introducidos por el usuario. Una vez se calcula l
 recuperarlo en la vista final, y se obtiene de la sesion el objeto de tipo EleccionBean, mediante el cual sabemos si debemos redirigir al formulario de contenido.jsp,
 o ir a la pagina final directamente. Con el contenido es igual que edificio, se piden los datos al usuario en el contenido.jsp, y se recupera esta informacion en
 el servlet Contenido, el cual guarda estos valores en un objeto ContenidoBean, se lo pasa como parametro al metodo CalculosContenido de la clase CalcularCuota, obenemos asi la prima
-y guardamos el resultado en el objeto ContenidoBean. Despues se guarda el objeto en sesion y se redirige a verCuota.jsp, el cual muestra la informacion introducida por el usuario.
-
-Queda por terminar verCuota.jsp
+y guardamos el resultado en el objeto ContenidoBean. Despues NO se guarda el objeto en sesion, sino que mediante request.setAttribute se le pasa directamente al siguiente jsp.
+Finalmente se redirige a verCuota.jsp, el cual muestra la informacion introducida por el usuario, mediante los metodos get de cada objeto. 

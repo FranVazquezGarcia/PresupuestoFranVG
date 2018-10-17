@@ -5,11 +5,13 @@
  */
 package es.albarregas.beans;
 
+import java.io.Serializable;
+
 /**
  *
  * @author fjvaz
  */
-public class ContenidoBean {
+public class ContenidoBean implements Serializable{
     private boolean accidentes; 
     private double cantidad;
     private String franquicia;
