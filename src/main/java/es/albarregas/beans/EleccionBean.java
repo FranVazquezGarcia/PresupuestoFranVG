@@ -12,7 +12,7 @@ import java.io.Serializable;
  * @author fjvaz
  */
 public class EleccionBean implements Serializable{
-    private boolean edificio;
+    private boolean edificio; 
     private boolean contenido;
 
     public boolean isEdificio() {
