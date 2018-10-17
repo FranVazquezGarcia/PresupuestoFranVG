@@ -91,6 +91,7 @@ public class Edificio extends HttpServlet {
         }
         //Guardamos el objeto miEdificio en la sesion para poder obtener los datos en la vista
         miSesion.setAttribute("edificio", miEdificio);
+        request.setAttribute("edi", miEdificio);
         request.getRequestDispatcher(url).forward(request,response);
     }
 

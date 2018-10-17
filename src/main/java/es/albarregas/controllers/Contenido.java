@@ -74,10 +74,8 @@ public class Contenido extends HttpServlet {
         //Creamos un objeto de Calcularcuota y usamos su metodo CalculosContenido para obtener la prima del contenido, y se lo asignamos al objeto ContenidoBean
         CalcularCuota miCuota=new CalcularCuota();
         miContenido.setPrima(miCuota.calculosContenido(miContenido));
-        //Guardamos el objeto miContenido en una sesion para obtenerlo en la vista
-        HttpSession miSesion = request.getSession(); 
-        miSesion.setAttribute("contenido", miContenido);
-        
+        //Pasamos el objeto miContenido como atributo para poder mostrarlo en verCuota.jsp
+        request.setAttribute("contenido", miContenido);
         request.getRequestDispatcher("JSP/verCuota.jsp").forward(request,response);
     }
 
