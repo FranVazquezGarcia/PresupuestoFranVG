@@ -9,3 +9,5 @@ recuperarlo en la vista final, y se obtiene de la sesion el objeto de tipo Elecc
 o ir a la pagina final directamente. Con el contenido es igual que edificio, se piden los datos al usuario en el contenido.jsp, y se recupera esta informacion en
 el servlet Contenido, el cual guarda estos valores en un objeto ContenidoBean, se lo pasa como parametro al metodo CalculosContenido de la clase CalcularCuota, obenemos asi la prima
 y guardamos el resultado en el objeto ContenidoBean. Despues se guarda el objeto en sesion y se redirige a verCuota.jsp, el cual muestra la informacion introducida por el usuario.
+
+Queda por terminar verCuota.jsp
