@@ -14,7 +14,7 @@
         <title>Seguro de edificios</title>
     </head>
     <body>
-        <h1>Seguros</h1>
+        <h1>Seguros</h1> 
         <form action="Edificio" method="post">
         <fieldset>
         <h2>Seguro de edificios</h2>
