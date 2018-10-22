@@ -28,6 +28,7 @@ double sumaTotal=0;
     <body>
         <h1>Seguros</h1>
         <h2>Ha realizado su seguro con éxito</h2>
+        <%-- NO VISUALIZAS LA PRIMA DE CADA UNO DE LOS SEGUROS --%>
         <%
             if(miEdificio!=null){
             sumaTotal+=miEdificio.getPrima();%>

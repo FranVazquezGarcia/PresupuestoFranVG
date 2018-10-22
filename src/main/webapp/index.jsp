@@ -20,6 +20,7 @@
         <h3>Marca la casilla del seguro que desea, seguro de edificios o de contenido, puede elegir ambos.</h3>
         <p>¿Que tipo de seguro necesitas?</p>
         <label for="edificios">Seguro de edificios: </label>
+        <%-- POR DEFECTO LOS CHECKBOX TIENEN QUE ESTAR MARCADOS --%>
         <input type="checkbox" name="edificios" value="edificios">
         <br>
         <label for="contenido">Seguro de contenido: </label>
