@@ -13,7 +13,7 @@
         <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
         <title>JSP Page</title>
     </head>
-    <body> 
+    <body>  
         <h1>Seguros</h1>
         <form action="<%=request.getContextPath()%>/Contenido" method="post">
         <fieldset>
