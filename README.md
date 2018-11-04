@@ -1,13 +1,12 @@
 # PresupuestoFranVG
--Para esta aplicación primero se crea un index.jsp, el cual mediante 2 checkbox pregunta al usuario que tipo de seguro quiere, esta informacion se recoge en el
-servlet Eleccion, el cual guarda estas elecciones en los atributos de un objeto de tipo EleccionBean, y este se guardara en sesion para recuperarlo mas tarde.
- Segun se seleccione un checkbox u otro redirigira al formulario edificio.jsp o contenido.jsp, si se seleccionan ambos primero se redirige a edificio. Una vez enviada la informacion del formulario edificio.jsp,
-se envia la informacion al servlet Edificio.java, este crea un objeto de tipo EdificioBean, y guarda en sus atributos los valores del usuario, y la prima,
-que la calcula mediante el metodo CalculosEdificio de la clase CalcularCuota, a la cual le pasamos el objeto de edificio como parametro, este objeto ya debe
-tener establecidos los valores introducidos por el usuario. Una vez se calcula la prima se guarda el valor en el mismo objeto. Despues se guarda este objeto en sesion para
-recuperarlo en la vista final, y se obtiene de la sesion el objeto de tipo EleccionBean, mediante el cual sabemos si debemos redirigir al formulario de contenido.jsp,
-o ir a la pagina final directamente. Con el contenido es igual que edificio, se piden los datos al usuario en el contenido.jsp, y se recupera esta informacion en
-el servlet Contenido, el cual guarda estos valores en un objeto ContenidoBean, se lo pasa como parametro al metodo CalculosContenido de la clase CalcularCuota, obenemos asi la prima
-y guardamos el resultado en el objeto ContenidoBean. Despues NO se guarda el objeto en sesion, sino que mediante request.setAttribute se le pasa directamente al siguiente jsp.
-Finalmente se redirige a verCuota.jsp, el cual muestra la informacion introducida por el usuario, mediante los metodos get de cada objeto. 
-Si se intenta acceder mediante el enlace a alguna de las páginas sin haber hecho el formulario inicial (metodos doGet), te reedigirá al index.jsp.
+-Para empezar a usar esta aplicación primero se le pide al usuario que tipo de sintaxis quiere usar, para que el programa sepa como continuar.  
+Una vez se seleccione una sintaxis se muestra la primera pantalla con 2 checkbox en la que se pide que se pulse el seguro que se quiera realizar, de contenido, de edificio, o ambos.  
+En el caso de que no se seleccione ninguno, se mostrara la misma pantalla, si se selecciona ambos, primero se pediran los datos de edificio. La pantalla inicial es la siguiente:  
+![imagenIndex](/imagenesReadme/index.png)  
+Dependiendo de las opciones seleccionadas se mostrará un formulario u otro:  
+- El formulario para el seguro de edificios pedirá unos datos, una vez finalizado mostrarála pantalla final, o en el caso de que se haya seleccionado la opcion de contenidos, se mostrara otro formulario.  El formulario de edificios pedirá los siguientes datos:   
+![imagenEdi](/imagenesReadme/edificio.png)    
+- El formulario de contenidos pedirá otros datos:  
+![imagenCont](/imagenesReadme/contenido.png)    
+- Una vez finalizado los formularios se mostraran los precios de cada seguro, sus datos, y el precio total de ambos:
+![imagenVista](/imagenesReadme/vista.png) 
