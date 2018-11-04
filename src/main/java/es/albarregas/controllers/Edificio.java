@@ -83,11 +83,13 @@ public class Edificio extends HttpServlet {
         HttpSession miSesion = request.getSession(); 
         EleccionBean miEleccion= new EleccionBean();
         miEleccion=(EleccionBean)miSesion.getAttribute("eleccion");
+        //Tambien obtenemos la sintaxis de la sesion para saber a donde redirigir el flujo
+        String sintaxis=(String)miSesion.getAttribute("sintaxis");
         //En el caso de que haya que pedir los datos de contenido se redirige al contenido.jsp y si no directamente a verCuota.jsp
         if(miEleccion.isContenido()){
-            url="JSP/contenido.jsp";
+            url="JSP/"+sintaxis+"/contenido.jsp";
         }else{
-            url="JSP/verCuota.jsp";
+            url="JSP/"+sintaxis+"/verCuota.jsp";
         }
         //Guardamos el objeto miEdificio en la sesion para poder obtener los datos en la vista
         miSesion.setAttribute("edificio", miEdificio);

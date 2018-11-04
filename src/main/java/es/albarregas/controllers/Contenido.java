@@ -70,13 +70,22 @@ public class Contenido extends HttpServlet {
         ContenidoBean miContenido=new ContenidoBean();
         miContenido.setAccidentes(request.getParameter("accidentes")==null?false : true);
         miContenido.setCantidad(Double.parseDouble(request.getParameter("cantidad")));
-        miContenido.setFranquicia(request.getParameter("franquicia"));
+        if(!request.getParameter("franquicia").equals("ninguna")){
+            miContenido.setFranquicia(Double.parseDouble(request.getParameter("franquicia")));
+        }else{
+            miContenido.setFranquicia(0);
+        }
+
         //Creamos un objeto de Calcularcuota y usamos su metodo CalculosContenido para obtener la prima del contenido, y se lo asignamos al objeto ContenidoBean
         CalcularCuota miCuota=new CalcularCuota();
         miContenido.setPrima(miCuota.calculosContenido(miContenido));
         //Pasamos el objeto miContenido como atributo para poder mostrarlo en verCuota.jsp
         request.setAttribute("contenido", miContenido);
-        request.getRequestDispatcher("JSP/verCuota.jsp").forward(request,response);
+        
+        //Obtenemos la sintaxis de la sesion para saber a que carpeta redirigir el flujo
+        HttpSession miSesion = request.getSession(); 
+        String sintaxis=(String)miSesion.getAttribute("sintaxis");
+        request.getRequestDispatcher("JSP/"+sintaxis+"/verCuota.jsp").forward(request,response);
     }
 
     /**

@@ -8,6 +8,7 @@ package es.albarregas.controllers;
 import es.albarregas.beans.EleccionBean;
 import java.io.IOException;
 import java.io.PrintWriter;
+import javafx.scene.control.Alert;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -65,33 +66,39 @@ public class Eleccion extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        //Obtenemos la sintaxis que se ha elegido para asi dirigir el flujo correctamente
+        String sintaxis=request.getParameter("sintaxis");
         //Creamos una sesion
         HttpSession miSesion = request.getSession(); 
-        String url=new String();
+        StringBuilder url=new StringBuilder();
+        url.append("JSP/"+sintaxis);
+        //Guardamos la sintaxis en la sesion, para saber como dirigir el flujo en futuros controladores
+        miSesion.setAttribute("sintaxis", sintaxis);
         EleccionBean miEleccion= new EleccionBean();
         
-        //Comprobamos que checks se han marcado y instanciamos una clase de EleccionBean a la que le establecemos unos valores segun los check marcados.
+        //Comprobamos que checks se han m   arcado y instanciamos una clase de EleccionBean a la que le establecemos unos valores segun los check marcados.
         //Segun los checks marcados se redirigira a una pagina u otra, si se marcan las 2, se ira primero al formulario del edificio.
             if(request.getParameter("edificios")!=null){
                 miEleccion.setEdificio(true);
-                url="JSP/edificio.jsp";
+                url.append("/edificio.jsp");
             }else{
                 miEleccion.setEdificio(false);
             }
             if(request.getParameter("contenido")!=null){
                 miEleccion.setContenido(true);
-                if (url.equals("")){
-                    url="JSP/contenido.jsp";
+                if (url.toString().equals("JSP/"+sintaxis)){
+                    url.append("/contenido.jsp");
                 }
             }else{
                 miEleccion.setContenido(false);
             }
             //Guardamos en la sesion el objeto miEleccion, para luego en el controlador de edificio saber si hay que realizar el formulario de contenido o no.
             miSesion.setAttribute("eleccion", miEleccion);
-        if (url.equals("")){
-            url="index.jsp";
+        if (url.equals("JSP/"+sintaxis)){
+            url.append("/index.jsp");
         }
-        request.getRequestDispatcher(url).forward(request,response);
+        
+        request.getRequestDispatcher(url.toString()).forward(request,response);
     }
 
     /**

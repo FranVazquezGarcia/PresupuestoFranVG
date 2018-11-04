@@ -15,7 +15,7 @@
     </head>
     <body> 
         <h1>Seguros</h1>
-        <form action="Contenido" method="post">
+        <form action="<%=request.getContextPath()%>/Contenido" method="post">
         <fieldset>
         <h2>Seguro de contenidos</h2>
         <h3>Introduce la información necesaria acerca de su contenido:</h3>

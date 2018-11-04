@@ -65,9 +65,9 @@ public class CalcularCuota {
         if(miContenido.isAccidentes()){
             prima*=1.25;
         }
-        if(miContenido.getFranquicia().endsWith("500")){
+        if(miContenido.getFranquicia()==500){
             prima-=0.1;
-        }else if(miContenido.getFranquicia().equals("1000")){
+        }else if(miContenido.getFranquicia()==1000){
             prima-=0.2;
         }
         return prima;    

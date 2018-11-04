@@ -3,19 +3,23 @@
     Created on : 16-oct-2018, 0:54:56
     Author     : fjvaz
 --%>
-
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
+             <c:url value ="/Edificio" var="controlador"/>
+    <c:url value ="/CSS/estilos.css" var="css"/>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" type="text/css" media="screen" href="CSS/estilos.css" />
+        <link rel="stylesheet" type="text/css" media="screen" href="${css}" />
         <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
         <title>Seguro de edificios</title>
     </head>
     <body>
+
+        
         <h1>Seguros</h1> 
-        <form action="Edificio" method="post">
+        <form action="${controlador}" method="post">
         <fieldset>
         <h2>Seguro de edificios</h2>
         <h3>Introduce la información necesaria acerca de su vivienda:</h3>

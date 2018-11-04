@@ -3,6 +3,7 @@
     Created on : 17-oct-2018, 0:57:54
     Author     : fjvaz
 --%>
+<%@page import="java.text.DecimalFormat"%>
 <%@page import="es.albarregas.beans.ContenidoBean"%>
 <%@page import="es.albarregas.beans.EdificioBean"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -28,8 +29,8 @@ double sumaTotal=0;
     <body>
         <h1>Seguros</h1>
         <h2>Ha realizado su seguro con éxito</h2>
-        <%-- NO VISUALIZAS LA PRIMA DE CADA UNO DE LOS SEGUROS --%>
-        <%
+        <%DecimalFormat decimal = new DecimalFormat("#.00"); 
+
             if(miEdificio!=null){
             sumaTotal+=miEdificio.getPrima();%>
             <div class="titulo">Seguro de edificio:</div>
@@ -38,6 +39,7 @@ double sumaTotal=0;
             <div>Número de habitaciones: <%=miEdificio.getNumHabitaciones()%></div>
             <div>Fecha de construcción: <%=miEdificio.getFecha()%></div>
             <div>Material: <%=miEdificio.getMaterial()%></div>
+            <div>Precio del seguro de edificio: <%=decimal.format(miEdificio.getPrima())%>€</div>
             <br>
             <%}%>
             
@@ -49,11 +51,12 @@ double sumaTotal=0;
             <div class="titulo">Seguro de contenido:</div>
             <div>Daños accidentales: <%=miContenido.isAccidentes()==true? "Si" : "No"%></div>
             <div>Cantidad que va a segurar: <%=miContenido.getCantidad()%></div>
-            <div>Franquicia: <%=miContenido.getFranquicia()%></div>
+            <div>Franquicia: <%=miContenido.getFranquicia()==0? "Ninguna" : miContenido.getFranquicia()%></div>
+            <div>Precio del seguro de contenido: <%=decimal.format(miContenido.getPrima())%>€</div>
             <br>
             <%}%>
             
-            <h3>El precio total de su seguro es: <%=Math.round(sumaTotal*100.0)/100.0%>€</h3>  
+            <h3>El precio total de su seguro es: <%=decimal.format(sumaTotal)%>€</h3>  
         <%
             //Debemos eliminar la sesion, si no, mostrara una sumaTotal incorrecta
             miSesion.invalidate();
